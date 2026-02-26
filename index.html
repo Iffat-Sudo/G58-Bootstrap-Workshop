@@ -1,81 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>My Todo App</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My todo app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
     <script type="module" src="controller.js" defer></script>
-</head>
+  </head>
+  <body class="bg-light">
 
-<body class="bg-light">
-  <div class="container-lg">
-    <h1 class="text-center my-4">My Todo App</h1>
-
-    <div class="bg-white rounded border-2 shadow-sm p-4">
-
-      <form> id="todoForm">
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" required>
-
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea name="description" class="form-control" id="descriptionInput"rows="3"></textarea>
-        </div>
-
-        <div class="row">
-           <div class="col-sm mb-3">
+    <div class="container-lg">
+      <h1 class="text-center my-4">My Todo App</h1>
+      
+      <div class="bg-white rounded border shadow-sm p-3">
+        <form id="todoForm">
+          <div class="mb-3">
+            <label for="titleInput" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="titleInput" required>
+          </div>
+          <div class="mb-3">
+            <label for="descriptionInput" class="form-label">Description</label>
+            <textarea name="description" class="form-control" id="descriptionInput" rows="3"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-sm mb-3">
               <label for="dateInput" class="form-label">Due Date</label>
               <input type="datetime-local" name="dueDate" id="dateInput" class="form-control" required>
             </div>
-
-          <div class="col-sm mb-3">
+            <div class="col-sm mb-3">
               <label for="assignIput" class="form-label">Assign to Person (Optional)</label>
               <select id="assignIput" class="form-select" name="assignee" aria-label="Default select example">
-              <option selected value="0">-- Select Person (Optional) --</option>
-              <option value="Mattias Hellman">Mattias Hellman</option>
-              <option value="Sindhuja Parthasarathy">Sindhuja Parthasarathy</option>
-              <option value="Iffat Zabin">Iffat Zabin</option>
-              <option value="Zackaria Azzoug">Zackaria Azzoug</option>
-              <option value="Alexander Haitin">Alexander Haitin</option>
-            </select>
+                <option selected value="0">-- Select Person (Optional) --</option>
+                <option value="Mattias Hellman">Mattias Hellman</option>
+                <option value="Sindhuja Parthasarathy">Sindhuja Parthasarathy</option>
+                <option value="Iffat Zabin">Iffat Zabin</option>
+                <option value="Zackaria Azzoug">Zackaria Azzoug</option>
+                <option value="Alexander Haitin">Alexander Haitin</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class=" mb-3">
-          <label for="attachmentInput" class="form-label">Attachments</label>
-          <div class="input-group">
-           <input class="form-control" type="file" id="attachmentInput" multiple name="attachments" />
+          <div class="mb-3">
+            <label for="attachmentInput" class="form-label">Attachments</label>
+            <div class="input-group">
+              <input class="form-control" type="file" id="attachmentInput" multiple name="attachments" />
               <button class="btn btn-outline-secondary" type="btn-close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                 </svg>
               </button>
+            </div>
           </div>
-        </div>
-
-
-        <div class="border rounded p-3 mb-3" style="min-height: 60px;">
-          <!-- Attachment previews will go here later -->
-         </div>
-           <button id="btnAddTodo" type="submit" class="btn btn-primary d-flex align-items-center gap-1 ms-auto">
+          <div class="border rounded p-3 mb-3" style="min-height: 60px;">
+            <!-- Attachment previews will go here later -->
+          </div>
+          <button id="btnAddTodo" type="submit" class="btn btn-primary d-flex align-items-center gap-1 ms-auto">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
             </svg>
             Add Todo
           </button>
-      </form>
-    </div>
+        </form>
+      </div>
 
-   <ul id="todoList" class="list-group m-3">
+      <div class="card border shadow-sm mt-4 mb-5">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center p-3"><!-- no padding in sketch -->
+          <h2 class="h5 mb-0">Todos</h2>
+          <div class="btn-group" aria-label="Filter">
+            <button type="button" class="btn btn-sm btn-outline-secondary btnFilter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+              </svg>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btnSort">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <ul id="todoList" class="list-group m-3">
           <template id="todoItemTemplate">
             <li class="list-group-item todoListItem">
               <div class="container-lg px-0">
